@@ -14,7 +14,8 @@ function returnXPathObject($item){
     $xmlPageXPath = new DOMXPath($xmlPageDom);
     return $xmlPageXPath;
 }
-$packtPage = file_get_contents('/home/spontaneous/Desktop/kaymu/mobile.html', FILE_USE_INCLUDE_PATH);
+
+$packtPage = file_get_contents('/home/spontaneous/Desktop/kaymu/file1', FILE_USE_INCLUDE_PATH);
 
 $packtBook = array();
 
