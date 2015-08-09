@@ -17,11 +17,10 @@ function returnXPathObject($item){
 
 //$packtPage = curlGet('http://www.kaymu.com.np/dell-wireless-mouse-243549.html/?ref=[SHOP]-[NP-2015-30]-[CLA-TEA-2-PRO]#productDetails');
 $packtPage = array();
-$packtPage[0] = file_get_contents('/home/spontaneous/Desktop/kaymu.html', FILE_USE_INCLUDE_PATH);
-$packtPage[1] = file_get_contents('/home/spontaneous/Desktop/kay2.html', FILE_USE_INCLUDE_PATH);
-$packtPage[2] = file_get_contents('/home/spontaneous/Desktop/kay3.html', FILE_USE_INCLUDE_PATH);
-
-cfor($x = 0; $x<3; $x++)
+$packtPage[0] = file_get_contents('/home/spontaneous/Desktop/kaymu/samsung.html', FILE_USE_INCLUDE_PATH);
+$packtPage[1] = file_get_contents('/home/spontaneous/Desktop/kaymu/kay2.html', FILE_USE_INCLUDE_PATH);
+$packtPage[2] = file_get_contents('/home/spontaneous/Desktop/kaymu/kay3.html', FILE_USE_INCLUDE_PATH);
+for($x = 0; $x<3; $x++)
 {
     $packtBook = array();
 
@@ -79,3 +78,4 @@ cfor($x = 0; $x<3; $x++)
     //echo($packtBook["shiping"]);
 }
 ?>
+ 
