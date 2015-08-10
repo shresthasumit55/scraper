@@ -12,5 +12,6 @@ for($i = 1; $i <= 97  ; $i++)
     echo("downloading page".$i);
     $down = curlGet("http://www.kaymu.com.np/mobile-phones/?page=$i");
     file_put_contents("/home/spontaneous/Desktop/kaymu/mobile/page$i",$down);
+    
 }
 ?>

@@ -23,6 +23,5 @@ for($i=1;$i<98;$i++){
             fclose($handle);
         }
     }
-
 }
 ?>
