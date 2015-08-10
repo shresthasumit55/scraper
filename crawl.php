@@ -1,31 +1,28 @@
 <?php
-function curlGet($url){
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($ch, CURLOPT_URL, $url);
-    $results = curl_exec($ch);
-    curl_close($ch);
-    return $results;
-}
-
 function returnXPathObject($item){
     $xmlPageDom = new DomDocument();
     @$xmlPageDom->loadHTML($item);
     $xmlPageXPath = new DOMXPath($xmlPageDom);
     return $xmlPageXPath;
 }
-
-$packtPage = file_get_contents('/home/spontaneous/Desktop/kaymu/file1', FILE_USE_INCLUDE_PATH);
-
-$packtBook = array();
-
-$packtPageXPath = returnXPathObject($packtPage);
-
-$shiping = $packtPageXPath->query('//*[@id="productsCatalog"]/div/div/a');
-if ($shiping->length > 0) {
-    for($i=0;$i<$shiping->length;$i++){
-        echo($shiping->item($i)->getAttribute('href')."\n");
+$file = 'links.txt';
+for($i=1;$i<98;$i++){
+    $filename = '/home/spontaneous/Desktop/kaymu/mobile/page'.$i;
+    
+    $handle = fopen($filename,'r');
+     $webPage = fread($handle, filesize($filename));
+     //$webPage = file_get_contents($filename, FILE_USE_INCLUDE_PATH);
+    $packtPageXPath = returnXPathObject($webPage);
+    fclose($handle);    
+    $anchor = $packtPageXPath->query('//*[@id="productsCatalog"]/div/div/a');
+    if($anchor->length > 0) {
+        for($j=0;$j<$anchor->length;$j++){
+            $link = "http://www.kaymu.com.np".$anchor->item($j)->getAttribute('href')."\n";
+            $handle = fopen('links.txt', 'a');
+            fwrite($handle, $link);
+            fclose($handle);
+        }
     }
+
 }
 ?>
- 

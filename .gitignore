@@ -1,3 +1,5 @@
 .emacs.desktop
 *.php~
 .gitignore~
+links.txt
+*.txt~
