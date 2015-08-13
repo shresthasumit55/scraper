@@ -1,3 +1,4 @@
+// downloading pages with list of products
 <?php
 function curlGet($url){
     $ch = curl_init();

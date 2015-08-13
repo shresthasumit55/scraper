@@ -1,3 +1,4 @@
+// crawl the page with product list and scrap page link for each product 
 <?php
 function returnXPathObject($item){
     $xmlPageDom = new DomDocument();

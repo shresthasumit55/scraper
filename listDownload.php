@@ -1,3 +1,4 @@
+// downloading product pages
 <?php
 function returnXPathObject($item){
     $xmlPageDom = new DomDocument();
@@ -16,10 +17,15 @@ function curlGet($url){
 
 $file = 'links.txt';
 $handle = fopen($file,"r");
-$i = 10;
+$i = 1;
 // while(!feof($handle))
-while($i != 100)
+while($i != 3104)
 {
+    if($i<100){
+        $link = fgets($handle);
+        $i++;
+        continue;
+    }
     echo "downloading file".$i."\n";
     $link = fgets($handle);
     $link = str_replace("\n","",$link);
